@@ -3,6 +3,7 @@ package jamesdev.ttpod_task.skin;
 import jamesdev.ttpod_task.util.Constants;
 import jamesdev.ttpod_task.util.DownloadTask;
 import jamesdev.ttpod_task.util.SkinViewHolder;
+import jamesdev.ttpod_task.util.StorageHelper;
 
 import java.io.File;
 import java.io.IOException;
@@ -36,6 +37,8 @@ public class MainActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        
+        StorageHelper.getInstance().init();
 
         getSkinDataFromJSON();
 
@@ -121,10 +124,16 @@ public class MainActivity extends Activity {
                 StringBuilder imagePath = new StringBuilder(Constants.SkinJSON.PREVIEW_DIR);
                 String thumbName = skinInfo.get(Constants.SkinJSON.THUMB_NAME);
                 holder.thumbName = thumbName;
-                Log.d(TAG, "index: " + position);
-                Log.d(TAG, "imageName:" + thumbName);
+
+                if (StorageHelper.getInstance().isSkinExist(thumbName)) {
+                	holder.progressBar.setVisibility(View.GONE);
+                }
                 
-                imagePath.append(thumbName).append(Constants.SkinJSON.IMAGE_FORMAT);
+                String fileName = thumbName + Constants.SkinJSON.IMAGE_FORMAT;
+                Log.d(TAG, "index: " + position);
+                Log.d(TAG, "fileName:" + fileName);
+                
+                imagePath.append(fileName);
 
                 try {
                     InputStream ims = getAssets().open(imagePath.toString());
