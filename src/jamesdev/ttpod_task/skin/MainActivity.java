@@ -99,7 +99,7 @@ public class MainActivity extends Activity {
 
         @Override
         public Object getItem(int position) {
-            return null;
+            return skinData.get(position);
         }
 
         @Override
@@ -110,8 +110,8 @@ public class MainActivity extends Activity {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             final SkinViewHolder holder;
-            View view = convertView;
-            if (view == null) {
+            View view;
+            if (convertView == null) {
                 view = getLayoutInflater().inflate(R.layout.item_grid_image, parent, false);
                 holder = new SkinViewHolder();
                 assert view != null;
@@ -145,11 +145,19 @@ public class MainActivity extends Activity {
                 }
 
                 view.setTag(holder);
-            } else {
-                holder = (SkinViewHolder) view.getTag();
+        } else {
+                view = convertView;
             }
             return view;
         }
+
+/*        private View newView() {
+
+        }
+
+        private void bindView(int position, View view) {
+
+        }*/
     }
 
 }

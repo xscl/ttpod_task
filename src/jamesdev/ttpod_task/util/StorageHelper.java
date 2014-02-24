@@ -6,7 +6,7 @@ import android.os.Environment;
 import android.util.Log;
 
 public class StorageHelper {
-	private static String[] downloadedFiles;
+	private static String[] downloadedFiles = null;
 	private static StorageHelper mInstance = null;
 	private static final String TAG = "StorageHelper";
 	
@@ -32,6 +32,10 @@ public class StorageHelper {
 	private void getSkinFiles() {
 		File skinDir = new File(Constants.SkinJSON.SKIN_DIR);
 		File skinFiles[] = skinDir.listFiles();
+		if (skinFiles == null) {
+			return;
+		}
+		
 		int fileSize = skinFiles.length;
 		downloadedFiles = new String[fileSize];
 		
@@ -59,6 +63,9 @@ public class StorageHelper {
 	
 	public boolean isSkinExist(String skinName) {
 		boolean isExist = false;
+		if (downloadedFiles == null) {
+			return isExist;
+		}
 		for (int i = 0; i < downloadedFiles.length; i++) {
 			if (downloadedFiles[i].equals(skinName + Constants.SkinJSON.SKIN_SUFFIX)) {
 				isExist = true;
