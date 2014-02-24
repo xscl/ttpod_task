@@ -9,4 +9,5 @@ public class SkinViewHolder {
     public String skinUrl;
     public String thumbName;
     public String thumbFileName;
+    public boolean isEmbeded;
 }

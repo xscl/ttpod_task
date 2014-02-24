@@ -35,16 +35,16 @@ public class StorageHelper {
 		if (skinFiles == null) {
 			return;
 		}
-		
+
 		int fileSize = skinFiles.length;
 		downloadedFiles = new String[fileSize];
-		
+
 		for (int i = 0; i < fileSize; i++) {
 			Log.d(TAG, "fileName:" + skinFiles[i].getName());
 			downloadedFiles[i] = skinFiles[i].getName();
 		}
 	}
-	
+
 	
 	protected StorageHelper() {
 
@@ -72,7 +72,7 @@ public class StorageHelper {
 				break;
 			}
 		}
-		
+
 		return isExist;
 	}
 }

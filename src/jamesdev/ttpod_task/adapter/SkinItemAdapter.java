@@ -10,6 +10,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import jamesdev.ttpod_task.activity.R;
+import jamesdev.ttpod_task.util.AssetsHelper;
 import jamesdev.ttpod_task.util.Constants;
 import jamesdev.ttpod_task.util.SkinViewHolder;
 import jamesdev.ttpod_task.util.StorageHelper;
@@ -26,10 +27,14 @@ public class SkinItemAdapter extends BaseAdapter {
     private Context mContext;
     private  List<Map<String, String>> skinData;
     private static final String TAG = "SkinItemAdapter";
+    private int embededNo;
+    private String[] embededFiles;
 
-    public SkinItemAdapter(Context c,  List<Map<String, String>> pSkinData) {
-        mContext = c;
+    public SkinItemAdapter(Context context,  List<Map<String, String>> pSkinData) {
+        mContext = context;
         skinData = pSkinData;
+        embededFiles = AssetsHelper.getInstance(mContext).getAssetFiles(Constants.SkinJSON.EMBEDED_SKIN_DIR);
+        embededNo = embededFiles.length;
     }
     @Override
     public int getCount() {
@@ -75,13 +80,21 @@ public class SkinItemAdapter extends BaseAdapter {
         holder.imageView = (ImageView) view.findViewById(R.id.image);
         holder.progressBar = (ProgressBar) view.findViewById(R.id.progress);
 
-        Map<String, String> skinInfo = skinData.get(position);
-        holder.skinUrl = skinInfo.get(Constants.SkinJSON.SKIN_URL);
+        String thumbName;
 
-        String thumbName = skinInfo.get(Constants.SkinJSON.THUMB_NAME);
+        if (position < embededNo) {
+            holder.isEmbeded = true;
+            thumbName = embededFiles[position].split("\\.")[0];
+        } else {
+            holder.isEmbeded = false;
+            Map<String, String> skinInfo = skinData.get(position - embededNo);
+            holder.skinUrl = skinInfo.get(Constants.SkinJSON.SKIN_URL);
+            thumbName = skinInfo.get(Constants.SkinJSON.THUMB_NAME);
+        }
+
         holder.thumbName = thumbName;
 
-        if (StorageHelper.getInstance().isSkinExist(thumbName)) {
+        if (holder.isEmbeded || StorageHelper.getInstance().isSkinExist(thumbName)) {
             holder.progressBar.setVisibility(View.GONE);
         } else {
             holder.progressBar.setVisibility(View.VISIBLE);

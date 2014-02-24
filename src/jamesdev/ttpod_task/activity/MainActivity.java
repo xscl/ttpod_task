@@ -30,20 +30,25 @@ public class MainActivity extends Activity {
      * Called when the activity is first created.
      */
     private static final String TAG = "MainActivity";
-    GridView gridView;
-    String[] imageUrls;
+    private GridView gridView;
+    private String[] imageUrls;
+
     private List<Map<String, String>> skinData;
     private ArrayList<SkinViewHolder> skinViewHolders;
     private ArrayList<View> itemViews;
+
+    private static String[] downloadedFiles = null;
+    private static String[] embadedFiles = null;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         skinViewHolders = new ArrayList<SkinViewHolder>();
         itemViews = new ArrayList<View>();
 
-        StorageHelper.getInstance().init();
         getSkinDataFromJSON();
 
         gridView = (GridView)findViewById(R.id.gridViewSkin);
@@ -90,9 +95,10 @@ public class MainActivity extends Activity {
     @Override
     public void onResume() {
         super.onResume();
+        StorageHelper.getInstance().init();
+
         Log.d(TAG, "onResume");
     }
-
 
     private void startSkinDownload(View v) {
        SkinViewHolder skinViewHolder = (SkinViewHolder)v.getTag();
