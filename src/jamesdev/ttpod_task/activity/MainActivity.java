@@ -1,13 +1,14 @@
-package jamesdev.ttpod_task.skin;
+package jamesdev.ttpod_task.activity;
 
-import jamesdev.ttpod_task.util.Constants;
-import jamesdev.ttpod_task.util.DownloadTask;
-import jamesdev.ttpod_task.util.SkinViewHolder;
-import jamesdev.ttpod_task.util.StorageHelper;
+import android.content.Context;
+import android.media.Image;
+import jamesdev.ttpod_task.adapter.SkinItemAdapter;
+import jamesdev.ttpod_task.util.*;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -28,26 +29,29 @@ public class MainActivity extends Activity {
 	  /**
      * Called when the activity is first created.
      */
-    private static final String TAG = "MyActivity";
+    private static final String TAG = "MainActivity";
     GridView gridView;
     String[] imageUrls;
     private List<Map<String, String>> skinData;
+    private ArrayList<SkinViewHolder> skinViewHolders;
+    private ArrayList<View> itemViews;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        
-        StorageHelper.getInstance().init();
+        skinViewHolders = new ArrayList<SkinViewHolder>();
+        itemViews = new ArrayList<View>();
 
+        StorageHelper.getInstance().init();
         getSkinDataFromJSON();
 
         gridView = (GridView)findViewById(R.id.gridViewSkin);
-        gridView.setAdapter(new ImageAdapter());
+        gridView.setAdapter(new SkinItemAdapter(this, skinData));
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                             int position, long id) {
-            	Log.i(TAG, "startSkinDownload:" +position);
+            	Log.d(TAG, "startSkinDownload:" +position);
                 startSkinDownload(v);
             }
         });
@@ -56,11 +60,11 @@ public class MainActivity extends Activity {
         String state = Environment.getExternalStorageState();
         
         if (Environment.MEDIA_MOUNTED.equals(state)) {
-        	Log.i(TAG, "avaliable");
+        	Log.d(TAG, "visible");
         } else if (Environment.MEDIA_MOUNTED_READ_ONLY.equals(state)) {
-        	Log.i(TAG, "read only");
+        	Log.d(TAG, "read only");
         } else {
-        	Log.i(TAG, "unvisible");
+        	Log.d(TAG, "invisible");
         }
         
         File skinDir = new File(Constants.SkinJSON.SKIN_DIR);
@@ -75,15 +79,20 @@ public class MainActivity extends Activity {
     private void getSkinDataFromJSON() {
         JsonParser jsonParser = new JsonParser(this);
         skinData = jsonParser.getDataFromJSON();
-        
     }
 
     @Override
     public void onStart() {
     	super.onStart();
-    	
-        Log.i(TAG, "onStart");
+        Log.d(TAG, "onStart");
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.d(TAG, "onResume");
+    }
+
 
     private void startSkinDownload(View v) {
        SkinViewHolder skinViewHolder = (SkinViewHolder)v.getTag();
@@ -92,6 +101,11 @@ public class MainActivity extends Activity {
     }
 
     public class ImageAdapter extends BaseAdapter {
+        private Context mContext;
+
+        public ImageAdapter(Context c) {
+            mContext = c;
+        }
         @Override
         public int getCount() {
             return skinData.size();
@@ -109,55 +123,58 @@ public class MainActivity extends Activity {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
+            Log.d(TAG, "getView in position:" + position);
             final SkinViewHolder holder;
-            View view;
+            View view = convertView;
+
             if (convertView == null) {
-                view = getLayoutInflater().inflate(R.layout.item_grid_image, parent, false);
+                view = newView(R.layout.item_grid_image, parent, false, position);
                 holder = new SkinViewHolder();
-                assert view != null;
-                holder.imageView = (ImageView) view.findViewById(R.id.image);
-                holder.progressBar = (ProgressBar) view.findViewById(R.id.progress);
-
-                Map<String, String> skinInfo = skinData.get(position);
-                holder.skinUrl = skinInfo.get(Constants.SkinJSON.SKIN_URL);
-
-                StringBuilder imagePath = new StringBuilder(Constants.SkinJSON.PREVIEW_DIR);
-                String thumbName = skinInfo.get(Constants.SkinJSON.THUMB_NAME);
-                holder.thumbName = thumbName;
-
-                if (StorageHelper.getInstance().isSkinExist(thumbName)) {
-                	holder.progressBar.setVisibility(View.GONE);
-                }
-                
-                String fileName = thumbName + Constants.SkinJSON.IMAGE_FORMAT;
-                Log.d(TAG, "index: " + position);
-                Log.d(TAG, "fileName:" + fileName);
-                
-                imagePath.append(fileName);
-
-                try {
-                    InputStream ims = getAssets().open(imagePath.toString());
-                    Drawable drawable = Drawable.createFromStream(ims, null);
-                    holder.imageView.setImageDrawable(drawable);
-                } catch (IOException ex) {
-                    Log.e(TAG, "getView" + position);
-                    ex.printStackTrace();
-                }
-
                 view.setTag(holder);
-        } else {
-                view = convertView;
+            } else {
+                holder = (SkinViewHolder)view.getTag();
             }
+
+            bindView(position, view, holder);
             return view;
         }
 
-/*        private View newView() {
-
+        private View newView(int resource, ViewGroup parent, boolean attachToRoot, int position) {
+            View  view = getLayoutInflater().inflate(resource, parent, false);
+            return view;
         }
 
-        private void bindView(int position, View view) {
+        private void bindView(int position, View view, SkinViewHolder holder) {
+            assert view != null;
 
-        }*/
+            holder.imageView = (ImageView) view.findViewById(R.id.image);
+            holder.progressBar = (ProgressBar) view.findViewById(R.id.progress);
+
+            Map<String, String> skinInfo = skinData.get(position);
+            holder.skinUrl = skinInfo.get(Constants.SkinJSON.SKIN_URL);
+
+            String thumbName = skinInfo.get(Constants.SkinJSON.THUMB_NAME);
+            holder.thumbName = thumbName;
+
+            if (StorageHelper.getInstance().isSkinExist(thumbName)) {
+                holder.progressBar.setVisibility(View.GONE);
+            } else {
+                holder.progressBar.setVisibility(View.VISIBLE);
+            }
+
+            holder.thumbFileName = thumbName + Constants.SkinJSON.IMAGE_FORMAT;
+            String imagePath = Constants.SkinJSON.PREVIEW_DIR + holder.thumbFileName;
+
+            Log.d(TAG, "position: " + position + " path: " + imagePath);
+
+            try {
+                InputStream ims = getAssets().open(imagePath);
+                Drawable drawable = Drawable.createFromStream(ims, null);
+                holder.imageView.setImageDrawable(drawable);
+            } catch (IOException ex) {
+                Log.e(TAG, "getView error:" + position);
+                ex.printStackTrace();
+            }
+        }
     }
-
 }

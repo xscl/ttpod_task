@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="jamesdev.ttpod_task.skin"
+          package="jamesdev.ttpod_task.activity"
           android:versionCode="1"
           android:versionName="1.0">
     <uses-sdk android:minSdkVersion="10"
@@ -12,7 +12,7 @@
     <application 
         android:label="@string/app_name" 
         android:icon="@drawable/ic_launcher">
-        <activity android:name="MainActivity"
+        <activity android:name="jamesdev.ttpod_task.activity.MainActivity"
                   android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

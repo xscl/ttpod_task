@@ -1,7 +1,4 @@
-package jamesdev.ttpod_task.skin;
-
-
-import jamesdev.ttpod_task.util.Constants;
+package jamesdev.ttpod_task.util;
 
 import java.io.BufferedReader;
 import java.io.IOException;

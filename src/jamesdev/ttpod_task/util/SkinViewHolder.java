@@ -8,4 +8,5 @@ public class SkinViewHolder {
     public ProgressBar progressBar;
     public String skinUrl;
     public String thumbName;
+    public String thumbFileName;
 }
