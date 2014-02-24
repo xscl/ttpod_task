@@ -38,12 +38,12 @@ public class SkinItemAdapter extends BaseAdapter {
     }
     @Override
     public int getCount() {
-        return skinData.size();
+        return embededNo + skinData.size() + 1;
     }
 
     @Override
     public Object getItem(int position) {
-        return skinData.get(position);
+        return null;
     }
 
     @Override
@@ -82,19 +82,26 @@ public class SkinItemAdapter extends BaseAdapter {
 
         String thumbName;
 
-        if (position < embededNo) {
-            holder.isEmbeded = true;
-            thumbName = embededFiles[position].split("\\.")[0];
+        if (position == this.getCount() - 1) {
+            holder.isLast = true;
+            thumbName = Constants.SkinJSON.DOWNLOAD_NAME;
+            holder.progressBar.setVisibility(View.GONE);
         } else {
-            holder.isEmbeded = false;
-            Map<String, String> skinInfo = skinData.get(position - embededNo);
-            holder.skinUrl = skinInfo.get(Constants.SkinJSON.SKIN_URL);
-            thumbName = skinInfo.get(Constants.SkinJSON.THUMB_NAME);
+            holder.isLast = false;
+            if (position < embededNo) {
+                holder.isEmbeded = true;
+                thumbName = embededFiles[position].split("\\.")[0];
+            } else {
+                holder.isEmbeded = false;
+                Map<String, String> skinInfo = skinData.get(position - embededNo);
+                holder.skinUrl = skinInfo.get(Constants.SkinJSON.SKIN_URL);
+                thumbName = skinInfo.get(Constants.SkinJSON.THUMB_NAME);
+            }
         }
 
         holder.thumbName = thumbName;
 
-        if (holder.isEmbeded || StorageHelper.getInstance().isSkinExist(thumbName)) {
+        if (holder.isEmbeded || holder.isLast || StorageHelper.getInstance().isSkinExist(thumbName)) {
             holder.progressBar.setVisibility(View.GONE);
         } else {
             holder.progressBar.setVisibility(View.VISIBLE);

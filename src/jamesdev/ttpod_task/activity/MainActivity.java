@@ -54,10 +54,9 @@ public class MainActivity extends Activity {
         gridView = (GridView)findViewById(R.id.gridViewSkin);
         gridView.setAdapter(new SkinItemAdapter(this, skinData));
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View v,
+            public void onItemClick(AdapterView<?> parent, View view,
                                             int position, long id) {
-            	Log.d(TAG, "startSkinDownload:" +position);
-                startSkinDownload(v);
+                ((SkinViewHolder)view.getTag()).doResponse(MainActivity.this);
             }
         });
         Log.i(TAG, "onCreate");
@@ -98,11 +97,5 @@ public class MainActivity extends Activity {
         StorageHelper.getInstance().init();
 
         Log.d(TAG, "onResume");
-    }
-
-    private void startSkinDownload(View v) {
-       SkinViewHolder skinViewHolder = (SkinViewHolder)v.getTag();
-       DownloadTask downloadTask = new DownloadTask(this, skinViewHolder);
-       downloadTask.execute(); 
     }
 }

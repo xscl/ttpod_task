@@ -17,6 +17,7 @@ public final class Constants {
 	   public static final String SKIN_DIR = Environment.getExternalStorageDirectory().toString() + "/ttpod_task/skin/";
 	   public static final String SKIN_SUFFIX = ".tsk";
        public static final String EMBEDED_SKIN_DIR = "embeded_skin";
+        public static final String DOWNLOAD_NAME = "download";
    }
 
 }
