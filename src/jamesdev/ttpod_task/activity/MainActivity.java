@@ -1,27 +1,23 @@
 package jamesdev.ttpod_task.activity;
 
-import android.content.Context;
-import android.media.Image;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.*;
-import jamesdev.ttpod_task.adapter.SkinItemAdapter;
-import jamesdev.ttpod_task.util.*;
-
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
 import android.app.Activity;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.GridView;
+import jamesdev.ttpod_task.adapter.SkinItemAdapter;
+import jamesdev.ttpod_task.util.Constants;
+import jamesdev.ttpod_task.util.GlobalMode;
+import jamesdev.ttpod_task.util.JsonParser;
+import jamesdev.ttpod_task.util.SkinViewHolder;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 public class MainActivity extends Activity {
 	  /**
