@@ -56,7 +56,7 @@ public class MainActivity extends Activity {
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view,
                                             int position, long id) {
-                ((SkinViewHolder)view.getTag()).doResponse(MainActivity.this);
+                ((SkinViewHolder)view.getTag()).doResponse();
             }
         });
         Log.i(TAG, "onCreate");

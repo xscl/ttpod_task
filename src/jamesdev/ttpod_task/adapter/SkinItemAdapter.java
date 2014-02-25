@@ -59,7 +59,7 @@ public class SkinItemAdapter extends BaseAdapter {
 
         if (convertView == null) {
             view = newView(R.layout.item_grid_image, parent, false, position);
-            holder = new SkinViewHolder();
+            holder = new SkinViewHolder(mContext, position);
             view.setTag(holder);
         } else {
             holder = (SkinViewHolder)view.getTag();
@@ -76,6 +76,7 @@ public class SkinItemAdapter extends BaseAdapter {
 
     private void bindView(int position, View view, SkinViewHolder holder) {
         assert view != null;
+        Log.d(TAG, "position: " + position + " old thumbName: " + holder.thumbName);
 
         holder.imageView = (ImageView) view.findViewById(R.id.image);
         holder.progressBar = (ProgressBar) view.findViewById(R.id.progress);
@@ -99,26 +100,6 @@ public class SkinItemAdapter extends BaseAdapter {
             }
         }
 
-        holder.thumbName = thumbName;
-
-        if (holder.isEmbeded || holder.isLast || StorageHelper.getInstance().isSkinExist(thumbName)) {
-            holder.progressBar.setVisibility(View.GONE);
-        } else {
-            holder.progressBar.setVisibility(View.VISIBLE);
-        }
-
-        holder.thumbFileName = thumbName + Constants.SkinJSON.IMAGE_FORMAT;
-        String imagePath = Constants.SkinJSON.PREVIEW_DIR + holder.thumbFileName;
-
-        Log.d(TAG, "position: " + position + " path: " + imagePath);
-
-        try {
-            InputStream ims = mContext.getAssets().open(imagePath);
-            Drawable drawable = Drawable.createFromStream(ims, null);
-            holder.imageView.setImageDrawable(drawable);
-        } catch (IOException ex) {
-            Log.e(TAG, "getView error:" + position);
-            ex.printStackTrace();
-        }
+        holder.loadThumb(thumbName);
     }
 }
