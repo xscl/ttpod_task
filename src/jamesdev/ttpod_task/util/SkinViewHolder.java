@@ -4,8 +4,10 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.View;
+import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import jamesdev.ttpod_task.Task.DownloadTask;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -13,45 +15,53 @@ import java.io.InputStream;
 public class SkinViewHolder {
     public ImageView imageView;
     public ProgressBar progressBar;
+    public ImageView deleteImageView;
+
     public String skinUrl;
-    public String thumbName;
-    public String thumbFileName;
+    private String mThumbName;
     public boolean isEmbeded;
     public boolean isLast;
 
     public int position;
 
     private Context mContext;
-
+    private BaseAdapter mBaseAdapter;
     private static final String TAG = "SkinViewHolder";
 
-    public SkinViewHolder(Context context, int p) {
+    public SkinViewHolder(Context context, BaseAdapter baseAdapter, int p) {
         mContext = context;
+        mBaseAdapter =baseAdapter;
         position = p;
         Log.d(TAG, "create new one, position:" + position);
     }
 
     public void doResponse() {
-        if (this.isEmbeded) {
+        if (this.isEmbeded || FileHelper.isSkinExist(this.mThumbName)) {
             setSkin();
         } else if (this.isLast ) {
-            downloadMore();;
+            downloadMore();
         } else {
-            startSkinDownload(mContext);
+            startSkinDownload();
         }
     }
 
     public void doEdit() {
-        Log.d(TAG, "delete file, update state");
+        Log.d(TAG, "edit skin");
+        if (!this.isEmbeded && FileHelper.delleteSkin(this.mThumbName)) {
+            Log.d(TAG, "delete file success");
+            mBaseAdapter.notifyDataSetChanged();
+        } else {
+            Log.d(TAG, "cannot delete file");
+        }
     }
 
-    private void startSkinDownload(Context context) {
+    private void startSkinDownload() {
         DownloadTask downloadTask = new DownloadTask(mContext, this);
         downloadTask.execute();
     }
 
     private void setSkin() {
-        Log.i(TAG, "setSkin: " + thumbName);
+        Log.i(TAG, "setSkin: " + mThumbName);
     }
 
     private void downloadMore() {
@@ -59,18 +69,18 @@ public class SkinViewHolder {
     }
 
     public void loadThumb(String thumbName) {
-        this.thumbName = thumbName;
+        this.mThumbName = thumbName;
 
-        if (this.isEmbeded || this.isLast || StorageHelper.getInstance().isSkinExist(thumbName)) {
+        if (this.isEmbeded || this.isLast || FileHelper.isSkinExist(mThumbName)) {
             this.progressBar.setVisibility(View.GONE);
         } else {
+            this.progressBar.setProgress(0);
             this.progressBar.setVisibility(View.VISIBLE);
         }
 
-        this.thumbFileName = thumbName + Constants.SkinJSON.IMAGE_FORMAT;
-        String imagePath = Constants.SkinJSON.PREVIEW_DIR + this.thumbFileName;
+        String imagePath = Constants.SkinJSON.PREVIEW_DIR + mThumbName + Constants.SkinJSON.IMAGE_FORMAT;
 
-        Log.d(TAG, "position: " + position + " new thumbName: " + thumbName);
+        Log.d(TAG, "position: " + position + " new thumbName: " + mThumbName);
 
         try {
             InputStream ims = mContext.getAssets().open(imagePath);
@@ -80,5 +90,18 @@ public class SkinViewHolder {
             Log.e(TAG, "getView error:" + position);
             ex.printStackTrace();
         }
+    }
+
+    public void setDeleteImageView(String thumbName) {
+        mThumbName = thumbName;
+        if (FileHelper.isSkinExist(mThumbName)) {
+            deleteImageView.setVisibility(View.VISIBLE);
+        } else {
+            deleteImageView.setVisibility(View.GONE);
+        }
+    }
+
+    public String getThumbName() {
+        return mThumbName;
     }
 }

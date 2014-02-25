@@ -27,15 +27,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="625f5af8-c70f-4b0a-bf3f-37da2a337cda" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/jamesdev/ttpod_task/util/GlobalMode.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/menu/skin_edit_menu.xml" />
-      <change type="DELETED" beforePath="D:\Github\ttpod_task\res\menu\skin_edit.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/jamesdev/ttpod_task/util/Constants.java" afterPath="$PROJECT_DIR$/src/jamesdev/ttpod_task/util/Constants.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/jamesdev/ttpod_task/activity/MainActivity.java" afterPath="$PROJECT_DIR$/src/jamesdev/ttpod_task/activity/MainActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/jamesdev/ttpod_task/adapter/SkinItemAdapter.java" afterPath="$PROJECT_DIR$/src/jamesdev/ttpod_task/adapter/SkinItemAdapter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/jamesdev/ttpod_task/util/SkinViewHolder.java" afterPath="$PROJECT_DIR$/src/jamesdev/ttpod_task/util/SkinViewHolder.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/activity_main.xml" afterPath="$PROJECT_DIR$/res/layout/activity_main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/strings.xml" afterPath="$PROJECT_DIR$/res/values/strings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/item_grid_image.xml" afterPath="$PROJECT_DIR$/res/layout/item_grid_image.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MOVED" beforePath="D:\Github\ttpod_task\src\jamesdev\ttpod_task\util\DownloadTask.java" afterPath="$PROJECT_DIR$/src/jamesdev/ttpod_task/Task/DownloadTask.java" />
+      <change type="MOVED" beforePath="D:\Github\ttpod_task\src\jamesdev\ttpod_task\util\StorageHelper.java" afterPath="$PROJECT_DIR$/src/jamesdev/ttpod_task/util/FileHelper.java" />
     </list>
     <ignored path="ttpod_task.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -102,14 +102,14 @@
       <file leaf-file-name="MainActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/jamesdev/ttpod_task/activity/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="105" column="47" selection-start="3802" selection-end="3803" vertical-scroll-proportion="0.0" vertical-offset="781" max-vertical-offset="2071">
+            <state line="83" column="44" selection-start="3193" selection-end="3193" vertical-scroll-proportion="0.0" vertical-offset="890" max-vertical-offset="2128">
               <folding>
-                <element signature="e#1517#2288#0" expanded="true" />
-                <element signature="e#1843#1879#0" expanded="true" />
-                <element signature="e#2141#2177#0" expanded="true" />
-                <element signature="e#2277#2278#0" expanded="true" />
-                <element signature="e#2492#3048#0" expanded="true" />
-                <element signature="e#3037#3038#0" expanded="true" />
+                <element signature="e#1659#2526#0" expanded="true" />
+                <element signature="e#1985#2021#0" expanded="true" />
+                <element signature="e#2331#2367#0" expanded="true" />
+                <element signature="e#2515#2516#0" expanded="true" />
+                <element signature="e#2679#3235#0" expanded="true" />
+                <element signature="e#3224#3225#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -118,7 +118,19 @@
       <file leaf-file-name="SkinItemAdapter.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/jamesdev/ttpod_task/adapter/SkinItemAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="101" column="0" selection-start="3395" selection-end="3395" vertical-scroll-proportion="0.0" vertical-offset="1019" max-vertical-offset="1767">
+            <state line="59" column="66" selection-start="1756" selection-end="1756" vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="1995">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="item_grid_image.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/layout/item_grid_image.xml">
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="24" selection-start="226" selection-end="226" vertical-scroll-proportion="-4.3846154" vertical-offset="0" max-vertical-offset="646">
               <folding />
             </state>
           </provider>
@@ -127,16 +139,37 @@
       <file leaf-file-name="Constants.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/jamesdev/ttpod_task/util/Constants.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="27" selection-start="806" selection-end="806" vertical-scroll-proportion="0.0" vertical-offset="193" max-vertical-offset="589">
+            <state line="8" column="19" selection-start="135" selection-end="135" vertical-scroll-proportion="0.0" vertical-offset="146" max-vertical-offset="665">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SkinViewHolder.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="SkinViewHolder.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/jamesdev/ttpod_task/util/SkinViewHolder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="5" selection-start="813" selection-end="813" vertical-scroll-proportion="-0.2109375" vertical-offset="518" max-vertical-offset="1539">
+            <state line="76" column="42" selection-start="2163" selection-end="2163" vertical-scroll-proportion="0.0" vertical-offset="959" max-vertical-offset="1938">
+              <folding>
+                <element signature="e#3083#3084#0" expanded="true" />
+                <element signature="e#3116#3117#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DownloadTask.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/jamesdev/ttpod_task/Task/DownloadTask.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="94" column="51" selection-start="2485" selection-end="2503" vertical-scroll-proportion="0.27027026" vertical-offset="1400" max-vertical-offset="1919">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FileHelper.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/jamesdev/ttpod_task/util/FileHelper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="51" column="52" selection-start="1514" selection-end="1514" vertical-scroll-proportion="0.0" vertical-offset="852" max-vertical-offset="1387">
               <folding />
             </state>
           </provider>
@@ -159,20 +192,23 @@
         <option value="$PROJECT_DIR$/src/jamesdev/ttpod_task/util/JsonParser.java" />
         <option value="$PROJECT_DIR$/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/src/jamesdev/ttpod_task/SkinItemAdapter.java" />
-        <option value="$PROJECT_DIR$/src/jamesdev/ttpod_task/util/StorageHelper.java" />
         <option value="$PROJECT_DIR$/src/jamesdev/ttpod_task/util/Debug.java" />
         <option value="$PROJECT_DIR$/src/jamesdev/ttpod_task/util/AssetsHelper.java" />
-        <option value="$PROJECT_DIR$/res/layout/item_grid_image.xml" />
-        <option value="$PROJECT_DIR$/src/jamesdev/ttpod_task/adapter/SkinItemAdapter.java" />
         <option value="$PROJECT_DIR$/res/menu/skin_edit.xml" />
         <option value="$PROJECT_DIR$/res/menu/skin_edit_menu.xml" />
         <option value="$PROJECT_DIR$/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/src/jamesdev/ttpod_task/util/Global.java" />
-        <option value="$PROJECT_DIR$/src/jamesdev/ttpod_task/util/Constants.java" />
         <option value="$PROJECT_DIR$/src/jamesdev/ttpod_task/util/GlobalMode.java" />
+        <option value="$PROJECT_DIR$/res/layout/activity_main.xml" />
+        <option value="$PROJECT_DIR$/src/jamesdev/ttpod_task/util/DownloadTask.java" />
+        <option value="$PROJECT_DIR$/src/jamesdev/ttpod_task/util/StorageHelper.java" />
+        <option value="$PROJECT_DIR$/src/jamesdev/ttpod_task/util/Constants.java" />
+        <option value="$PROJECT_DIR$/src/jamesdev/ttpod_task/util/FileHelper.java" />
+        <option value="$PROJECT_DIR$/src/jamesdev/ttpod_task/adapter/SkinItemAdapter.java" />
         <option value="$PROJECT_DIR$/src/jamesdev/ttpod_task/activity/MainActivity.java" />
+        <option value="$PROJECT_DIR$/res/layout/item_grid_image.xml" />
         <option value="$PROJECT_DIR$/src/jamesdev/ttpod_task/util/SkinViewHolder.java" />
+        <option value="$PROJECT_DIR$/src/jamesdev/ttpod_task/Task/DownloadTask.java" />
       </list>
     </option>
   </component>
@@ -278,15 +314,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ttpod_task" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="activity" />
+              <option name="myItemId" value="res" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -301,6 +329,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layout" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -333,7 +365,7 @@
       <recent name="D:\Github\ttpod_task\assets\embaded_skin" />
     </key>
   </component>
-  <component name="RunManager" selected="Android Application.ttpod_task">
+  <component name="RunManager" selected="Android Application.RunInDevice">
     <configuration default="false" name="All Tests" type="AndroidTestRunConfigurationType" factoryName="Android Tests" temporary="true" nameIsGenerated="true">
       <module name="ttpod_task" />
       <option name="TESTING_TYPE" value="0" />
@@ -498,15 +530,37 @@
       <option name="DISABLE_BOOT_ANIMATION" value="false" />
       <option name="NETWORK_SPEED" value="full" />
       <option name="NETWORK_LATENCY" value="none" />
-      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="CLEAR_LOGCAT" value="true" />
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
       <RunnerSettings RunnerId="AndroidDebugRunner" />
       <ConfigurationWrapper RunnerId="AndroidDebugRunner" />
       <method />
     </configuration>
-    <list size="2">
+    <configuration default="false" name="RunInDevice" type="AndroidRunConfigurationType" factoryName="Android Application">
+      <module name="ttpod_task" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="DEPLOY" value="true" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="true" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <RunnerSettings RunnerId="AndroidDebugRunner" />
+      <ConfigurationWrapper RunnerId="AndroidDebugRunner" />
+      <method />
+    </configuration>
+    <list size="3">
       <item index="0" class="java.lang.String" itemvalue="Android Application.ttpod_task" />
-      <item index="1" class="java.lang.String" itemvalue="Android Tests.All Tests" />
+      <item index="1" class="java.lang.String" itemvalue="Android Application.RunInDevice" />
+      <item index="2" class="java.lang.String" itemvalue="Android Tests.All Tests" />
     </list>
     <recent_temporary>
       <list size="1">
@@ -519,6 +573,11 @@
     </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SliceManager">
+    <option name="analysisUIOptions">
+      <AnalysisUIOptions />
+    </option>
+  </component>
   <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="all">
     <option name="USER" value="" />
     <option name="PASSWORD" value="" />
@@ -571,9 +630,10 @@
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32931727" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295129" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25143266" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29451138" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30655956" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39089692" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" x="21" y="303" width="1398" height="254" />
@@ -581,7 +641,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32931727" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20028612" sideWeight="0.500998" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33065596" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4497992" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3694779" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32931727" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24964234" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -592,9 +652,36 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32931727" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39089692" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" x="21" y="303" width="1398" height="254" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20028612" sideWeight="0.500998" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32931727" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32931727" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20028612" sideWeight="0.497006" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32931727" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29451138" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295129" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20028612" sideWeight="0.5010142" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33065596" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2583668" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24964234" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -644,12 +731,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="57" column="68" selection-start="1836" selection-end="1836" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2033">
           <folding>
-            <element signature="e#1517#2288#0" expanded="true" />
-            <element signature="e#1843#1879#0" expanded="true" />
-            <element signature="e#2141#2177#0" expanded="true" />
-            <element signature="e#2277#2278#0" expanded="true" />
-            <element signature="e#2492#3048#0" expanded="true" />
-            <element signature="e#3037#3038#0" expanded="true" />
+            <element signature="e#1659#2526#0" expanded="true" />
+            <element signature="e#1985#2021#0" expanded="true" />
+            <element signature="e#2331#2367#0" expanded="true" />
+            <element signature="e#2515#2516#0" expanded="true" />
+            <element signature="e#2679#3235#0" expanded="true" />
+            <element signature="e#3224#3225#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -681,12 +768,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="97" column="97" selection-start="3065" selection-end="3065" vertical-scroll-proportion="0.0" vertical-offset="1843" max-vertical-offset="2166">
           <folding>
-            <element signature="e#1517#2288#0" expanded="true" />
-            <element signature="e#1843#1879#0" expanded="true" />
-            <element signature="e#2141#2177#0" expanded="true" />
-            <element signature="e#2277#2278#0" expanded="true" />
-            <element signature="e#2492#3048#0" expanded="true" />
-            <element signature="e#3037#3038#0" expanded="true" />
+            <element signature="e#1659#2526#0" expanded="true" />
+            <element signature="e#1985#2021#0" expanded="true" />
+            <element signature="e#2331#2367#0" expanded="true" />
+            <element signature="e#2515#2516#0" expanded="true" />
+            <element signature="e#2679#3235#0" expanded="true" />
+            <element signature="e#3224#3225#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -719,7 +806,7 @@
         <state line="20" column="40" selection-start="525" selection-end="525" vertical-scroll-proportion="0.0" vertical-offset="380" max-vertical-offset="589" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/jamesdev/ttpod_task/util/StorageHelper.java">
+    <entry file="file://$PROJECT_DIR$/src/jamesdev/ttpod_task/util/FileHelper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="56" selection-start="466" selection-end="466" vertical-scroll-proportion="0.0" vertical-offset="266" max-vertical-offset="1596" />
       </provider>
@@ -728,12 +815,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="97" column="97" selection-start="3065" selection-end="3065" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2166">
           <folding>
-            <element signature="e#1517#2288#0" expanded="true" />
-            <element signature="e#1843#1879#0" expanded="true" />
-            <element signature="e#2141#2177#0" expanded="true" />
-            <element signature="e#2277#2278#0" expanded="true" />
-            <element signature="e#2492#3048#0" expanded="true" />
-            <element signature="e#3037#3038#0" expanded="true" />
+            <element signature="e#1659#2526#0" expanded="true" />
+            <element signature="e#1985#2021#0" expanded="true" />
+            <element signature="e#2331#2367#0" expanded="true" />
+            <element signature="e#2515#2516#0" expanded="true" />
+            <element signature="e#2679#3235#0" expanded="true" />
+            <element signature="e#3224#3225#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -766,7 +853,7 @@
         <state line="20" column="40" selection-start="525" selection-end="525" vertical-scroll-proportion="0.0" vertical-offset="380" max-vertical-offset="589" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/jamesdev/ttpod_task/util/StorageHelper.java">
+    <entry file="file://$PROJECT_DIR$/src/jamesdev/ttpod_task/util/FileHelper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="56" selection-start="466" selection-end="466" vertical-scroll-proportion="0.0" vertical-offset="266" max-vertical-offset="1596" />
       </provider>
@@ -775,12 +862,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="97" column="97" selection-start="3065" selection-end="3065" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2166">
           <folding>
-            <element signature="e#1517#2288#0" expanded="true" />
-            <element signature="e#1843#1879#0" expanded="true" />
-            <element signature="e#2141#2177#0" expanded="true" />
-            <element signature="e#2277#2278#0" expanded="true" />
-            <element signature="e#2492#3048#0" expanded="true" />
-            <element signature="e#3037#3038#0" expanded="true" />
+            <element signature="e#1659#2526#0" expanded="true" />
+            <element signature="e#1985#2021#0" expanded="true" />
+            <element signature="e#2331#2367#0" expanded="true" />
+            <element signature="e#2515#2516#0" expanded="true" />
+            <element signature="e#2679#3235#0" expanded="true" />
+            <element signature="e#3224#3225#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -813,7 +900,7 @@
         <state line="20" column="40" selection-start="525" selection-end="525" vertical-scroll-proportion="0.0" vertical-offset="380" max-vertical-offset="589" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/jamesdev/ttpod_task/util/StorageHelper.java">
+    <entry file="file://$PROJECT_DIR$/src/jamesdev/ttpod_task/util/FileHelper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="56" selection-start="466" selection-end="466" vertical-scroll-proportion="0.0" vertical-offset="266" max-vertical-offset="1596" />
       </provider>
@@ -822,12 +909,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="34" column="47" selection-start="978" selection-end="978" vertical-scroll-proportion="0.0" vertical-offset="646" max-vertical-offset="2147">
           <folding>
-            <element signature="e#1517#2288#0" expanded="true" />
-            <element signature="e#1843#1879#0" expanded="true" />
-            <element signature="e#2141#2177#0" expanded="true" />
-            <element signature="e#2277#2278#0" expanded="true" />
-            <element signature="e#2492#3048#0" expanded="true" />
-            <element signature="e#3037#3038#0" expanded="true" />
+            <element signature="e#1659#2526#0" expanded="true" />
+            <element signature="e#1985#2021#0" expanded="true" />
+            <element signature="e#2331#2367#0" expanded="true" />
+            <element signature="e#2515#2516#0" expanded="true" />
+            <element signature="e#2679#3235#0" expanded="true" />
+            <element signature="e#3224#3225#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -848,7 +935,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/jamesdev/ttpod_task/util/StorageHelper.java">
+    <entry file="file://$PROJECT_DIR$/src/jamesdev/ttpod_task/util/FileHelper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="56" selection-start="466" selection-end="466" vertical-scroll-proportion="0.0" vertical-offset="266" max-vertical-offset="1596" />
       </provider>
@@ -870,11 +957,6 @@
         <state line="7" column="64" selection-start="245" selection-end="245" vertical-scroll-proportion="0.3392857" vertical-offset="0" max-vertical-offset="1425" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/jamesdev/ttpod_task/util/DownloadTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="95" column="13" selection-start="2432" selection-end="2432" vertical-scroll-proportion="0.22095671" vertical-offset="1480" max-vertical-offset="1919" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/preview_img/ppt.PNG">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -890,11 +972,6 @@
         <state line="6" column="13" selection-start="154" selection-end="154" vertical-scroll-proportion="-5.7431817" vertical-offset="2622" max-vertical-offset="8455" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/jamesdev/ttpod_task/util/StorageHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="4" selection-start="918" selection-end="918" vertical-scroll-proportion="0.0" vertical-offset="285" max-vertical-offset="1539" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/jamesdev/ttpod_task/util/Debug.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="6" selection-start="377" selection-end="377" vertical-scroll-proportion="0.545082" vertical-offset="0" max-vertical-offset="551" />
@@ -903,16 +980,6 @@
     <entry file="file://$PROJECT_DIR$/res/drawable-hdpi/delete.PNG">
       <provider selected="true" editor-type-id="images">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/item_grid_image.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="36" selection-start="941" selection-end="941" vertical-scroll-proportion="-7.0784316" vertical-offset="114" max-vertical-offset="627">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/menu/main.xml">
@@ -940,13 +1007,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/jamesdev/ttpod_task/util/Constants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="27" selection-start="806" selection-end="806" vertical-scroll-proportion="0.0" vertical-offset="193" max-vertical-offset="589">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/jamesdev/ttpod_task/util/GlobalMode.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="72" selection-start="181" selection-end="181" vertical-scroll-proportion="0.296875" vertical-offset="0" max-vertical-offset="384">
@@ -964,41 +1024,73 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/activity_main.xml">
-      <provider selected="true" editor-type-id="android-designer">
+      <provider editor-type-id="android-designer">
         <state />
       </provider>
-      <provider editor-type-id="text-editor">
-        <state line="13" column="87" selection-start="608" selection-end="608" vertical-scroll-proportion="0.0" vertical-offset="38" max-vertical-offset="684">
-          <folding>
-            <element signature="e#447#473#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/jamesdev/ttpod_task/activity/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="105" column="47" selection-start="3802" selection-end="3803" vertical-scroll-proportion="0.0" vertical-offset="781" max-vertical-offset="2071">
-          <folding>
-            <element signature="e#1517#2288#0" expanded="true" />
-            <element signature="e#1843#1879#0" expanded="true" />
-            <element signature="e#2141#2177#0" expanded="true" />
-            <element signature="e#2277#2278#0" expanded="true" />
-            <element signature="e#2492#3048#0" expanded="true" />
-            <element signature="e#3037#3038#0" expanded="true" />
-          </folding>
+        <state line="11" column="33" selection-start="399" selection-end="399" vertical-scroll-proportion="0.29761904" vertical-offset="9" max-vertical-offset="703">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/jamesdev/ttpod_task/adapter/SkinItemAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="101" column="0" selection-start="3395" selection-end="3395" vertical-scroll-proportion="0.0" vertical-offset="1019" max-vertical-offset="1767">
+        <state line="59" column="66" selection-start="1756" selection-end="1756" vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="1995">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/jamesdev/ttpod_task/util/FileHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="52" selection-start="1514" selection-end="1514" vertical-scroll-proportion="0.0" vertical-offset="629" max-vertical-offset="1387">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/jamesdev/ttpod_task/activity/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="83" column="44" selection-start="3193" selection-end="3193" vertical-scroll-proportion="0.0" vertical-offset="890" max-vertical-offset="2128">
+          <folding>
+            <element signature="e#1659#2526#0" expanded="true" />
+            <element signature="e#1985#2021#0" expanded="true" />
+            <element signature="e#2331#2367#0" expanded="true" />
+            <element signature="e#2515#2516#0" expanded="true" />
+            <element signature="e#2679#3235#0" expanded="true" />
+            <element signature="e#3224#3225#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/item_grid_image.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="24" selection-start="226" selection-end="226" vertical-scroll-proportion="-4.3846154" vertical-offset="0" max-vertical-offset="646">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/jamesdev/ttpod_task/util/SkinViewHolder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="5" selection-start="813" selection-end="813" vertical-scroll-proportion="-0.2109375" vertical-offset="518" max-vertical-offset="1539">
+        <state line="76" column="42" selection-start="2163" selection-end="2163" vertical-scroll-proportion="0.0" vertical-offset="959" max-vertical-offset="1938">
+          <folding>
+            <element signature="e#3083#3084#0" expanded="true" />
+            <element signature="e#3116#3117#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/jamesdev/ttpod_task/util/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="19" selection-start="135" selection-end="135" vertical-scroll-proportion="0.0" vertical-offset="146" max-vertical-offset="665">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/jamesdev/ttpod_task/Task/DownloadTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="94" column="51" selection-start="2485" selection-end="2503" vertical-scroll-proportion="0.27027026" vertical-offset="1400" max-vertical-offset="1919">
           <folding />
         </state>
       </provider>

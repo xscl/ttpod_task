@@ -2,7 +2,9 @@ package jamesdev.ttpod_task.adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.database.DataSetObserver;
 import android.graphics.drawable.Drawable;
+import android.media.Image;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,10 +12,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import jamesdev.ttpod_task.activity.R;
-import jamesdev.ttpod_task.util.AssetsHelper;
-import jamesdev.ttpod_task.util.Constants;
-import jamesdev.ttpod_task.util.SkinViewHolder;
-import jamesdev.ttpod_task.util.StorageHelper;
+import jamesdev.ttpod_task.util.*;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -58,8 +57,8 @@ public class SkinItemAdapter extends BaseAdapter {
         View view = convertView;
 
         if (convertView == null) {
-            view = newView(R.layout.item_grid_image, parent, false, position);
-            holder = new SkinViewHolder(mContext, position);
+            view = newView(R.layout.item_grid_image, parent, false);
+            holder = new SkinViewHolder(mContext, this, position);
             view.setTag(holder);
         } else {
             holder = (SkinViewHolder)view.getTag();
@@ -69,17 +68,17 @@ public class SkinItemAdapter extends BaseAdapter {
         return view;
     }
 
-    private View newView(int resource, ViewGroup parent, boolean attachToRoot, int position) {
-        View  view = ((Activity) mContext).getLayoutInflater().inflate(resource, parent, false);
+    private View newView(int resource, ViewGroup parent, boolean attachToRoot) {
+        View  view = ((Activity) mContext).getLayoutInflater().inflate(resource, parent, attachToRoot);
         return view;
     }
 
     private void bindView(int position, View view, SkinViewHolder holder) {
         assert view != null;
-        Log.d(TAG, "position: " + position + " old thumbName: " + holder.thumbName);
 
         holder.imageView = (ImageView) view.findViewById(R.id.image);
         holder.progressBar = (ProgressBar) view.findViewById(R.id.progress);
+        holder.deleteImageView = (ImageView)view.findViewById(R.id.deleteImageView);
 
         String thumbName;
 
@@ -87,19 +86,31 @@ public class SkinItemAdapter extends BaseAdapter {
             holder.isLast = true;
             thumbName = Constants.SkinJSON.DOWNLOAD_NAME;
             holder.progressBar.setVisibility(View.GONE);
+            holder.deleteImageView.setVisibility(View.GONE);
         } else {
             holder.isLast = false;
             if (position < embededNo) {
                 holder.isEmbeded = true;
                 thumbName = embededFiles[position].split("\\.")[0];
+                holder.deleteImageView.setVisibility(View.GONE);
             } else {
                 holder.isEmbeded = false;
                 Map<String, String> skinInfo = skinData.get(position - embededNo);
                 holder.skinUrl = skinInfo.get(Constants.SkinJSON.SKIN_URL);
                 thumbName = skinInfo.get(Constants.SkinJSON.THUMB_NAME);
+
+                if (GlobalMode.SkinMode == Constants.GlobalState.SKIN_EDIT) {
+                    holder.setDeleteImageView(thumbName);
+                } else {
+                    holder.deleteImageView.setVisibility(View.GONE);
+                }
             }
         }
 
         holder.loadThumb(thumbName);
+    }
+
+    public void refresh() {
+        this.notifyDataSetChanged();
     }
 }

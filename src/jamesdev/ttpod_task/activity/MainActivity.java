@@ -40,6 +40,7 @@ public class MainActivity extends Activity {
     private static String[] downloadedFiles = null;
     private static String[] embadedFiles = null;
 
+    private SkinItemAdapter mSkinItemAdapter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -49,6 +50,9 @@ public class MainActivity extends Activity {
         skinViewHolders = new ArrayList<SkinViewHolder>();
         itemViews = new ArrayList<View>();
 
+        getSkinDataFromJSON();
+        mSkinItemAdapter = new SkinItemAdapter(this, skinData);
+
         skinEditButton = (Button)findViewById(R.id.button_skin_edit);
         skinEditButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,19 +61,19 @@ public class MainActivity extends Activity {
                 if (GlobalMode.SkinMode == Constants.GlobalState.SKIN_VIEW) {
                     GlobalMode.SkinMode = Constants.GlobalState.SKIN_EDIT;
                     self.setText(getString(R.string.button_save_skin));
+                    mSkinItemAdapter.refresh();
                     Log.d(TAG, "edit skin: update adapter data");
                 } else if (GlobalMode.SkinMode == Constants.GlobalState.SKIN_EDIT) {
                     GlobalMode.SkinMode = Constants.GlobalState.SKIN_VIEW;
                     self.setText(getString(R.string.button_edit_skin));
+                    mSkinItemAdapter.refresh();
                     Log.d(TAG, "save skin, update apdater data ");
                 }
             }
         });
 
-        getSkinDataFromJSON();
-
         gridView = (GridView)findViewById(R.id.gridViewSkin);
-        gridView.setAdapter(new SkinItemAdapter(this, skinData));
+        gridView.setAdapter(mSkinItemAdapter);
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view,
                                             int position, long id) {
@@ -117,7 +121,6 @@ public class MainActivity extends Activity {
     @Override
     public void onResume() {
         super.onResume();
-        StorageHelper.getInstance().init();
 
         Log.d(TAG, "onResume");
     }

@@ -5,10 +5,10 @@ import java.io.File;
 import android.os.Environment;
 import android.util.Log;
 
-public class StorageHelper {
+public class FileHelper {
 	private static String[] downloadedFiles = null;
-	private static StorageHelper mInstance = null;
-	private static final String TAG = "StorageHelper";
+	private static FileHelper mInstance = null;
+	private static final String TAG = "FileHelper";
 	
 	/* Checks if external storage is available for read and write */
 	public static boolean isExternalStorageWritable() {
@@ -45,34 +45,26 @@ public class StorageHelper {
 		}
 	}
 
-	
-	protected StorageHelper() {
+	public static boolean isSkinExist(String skinName) {
+		return isFileExisted(skinName + Constants.SkinJSON.SKIN_SUFFIX, Constants.SkinJSON.SKIN_DIR);
+	}
 
-	}
-	
-	public static StorageHelper getInstance() {
-		if (mInstance == null) {
-			mInstance = new StorageHelper();
-		}
-		return mInstance;
-	}
-	
-	public void init() {
-		getSkinFiles();	
-	}
-	
-	public boolean isSkinExist(String skinName) {
-		boolean isExist = false;
-		if (downloadedFiles == null) {
-			return isExist;
-		}
-		for (int i = 0; i < downloadedFiles.length; i++) {
-			if (downloadedFiles[i].equals(skinName + Constants.SkinJSON.SKIN_SUFFIX)) {
-				isExist = true;
-				break;
-			}
-		}
+    public static boolean isFileExisted(String fileName, String dir) {
+        File file = new File(dir + fileName);
+        return file.exists();
+    }
 
-		return isExist;
-	}
+    private static String getSkinPath(String skinName) {
+        return Constants.SkinJSON.SKIN_DIR + skinName + Constants.SkinJSON.SKIN_SUFFIX;
+    }
+
+    public static boolean delleteSkin(String skinName) {
+        String filePath = getSkinPath(skinName);
+        File skin = new File(filePath);
+        boolean isDeleted = false;
+        if (skin.exists()) {
+            isDeleted = skin.delete();
+        }
+        return isDeleted;
+    }
 }

@@ -20,9 +20,10 @@
         android:layout_gravity="bottom"
         style="@style/ProgressBarStyle" />
     <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:background="@drawable/delete"
             android:visibility="gone"
-            android:id="@+id/deleteImageView" android:layout_gravity="right|top"/>
+            android:id="@+id/deleteImageView"
+            android:layout_gravity="right|top"/>
 </FrameLayout>

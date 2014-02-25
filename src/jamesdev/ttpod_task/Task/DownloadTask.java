@@ -1,4 +1,4 @@
-package jamesdev.ttpod_task.util;
+package jamesdev.ttpod_task.Task;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -13,6 +13,8 @@ import android.os.Environment;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
+import jamesdev.ttpod_task.util.Constants;
+import jamesdev.ttpod_task.util.SkinViewHolder;
 
 public class DownloadTask extends AsyncTask<Void, Integer, Integer> {
 	private static final String TAG = "DownLoadTask";
@@ -25,7 +27,7 @@ public class DownloadTask extends AsyncTask<Void, Integer, Integer> {
 		super();
 		this.mContext = context;
 		this.mSkinViewHolder = skinViewHolder;
-		this.fileName = skinViewHolder.thumbName;
+		this.fileName = skinViewHolder.getThumbName();
 	}
 
 	@Override
