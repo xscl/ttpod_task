@@ -41,6 +41,10 @@ public class SkinViewHolder {
         }
     }
 
+    public void doEdit() {
+        Log.d(TAG, "delete file, update state");
+    }
+
     private void startSkinDownload(Context context) {
         DownloadTask downloadTask = new DownloadTask(mContext, this);
         downloadTask.execute();

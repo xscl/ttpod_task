@@ -20,4 +20,7 @@ public final class Constants {
         public static final String DOWNLOAD_NAME = "download";
    }
 
+    public enum GlobalState {
+        SKIN_VIEW, SKIN_EDIT
+    }
 }

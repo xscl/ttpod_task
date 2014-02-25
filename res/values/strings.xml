@@ -7,4 +7,10 @@
     <string name="button_start">Start</string>
     <string name="button_finish">Finish</string>
     <string name="descr_image">Image</string>
+
+    <string name="menu_edit">Edit</string>
+    <string name="menu_save">Save</string>
+
+    <string name="button_edit_skin">Edit</string>
+    <string name="button_save_skin">Save</string>
 </resources>
