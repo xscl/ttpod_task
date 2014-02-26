@@ -2,17 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a0bb582a-742c-4dc7-bd86-bcadead0f270" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/jamesdev/ttpod_task/util/AssetsHelper.java" afterPath="$PROJECT_DIR$/src/jamesdev/ttpod_task/util/AssetsHelper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/jamesdev/ttpod_task/util/Constants.java" afterPath="$PROJECT_DIR$/src/jamesdev/ttpod_task/util/Constants.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/jamesdev/ttpod_task/util/Debug.java" afterPath="$PROJECT_DIR$/src/jamesdev/ttpod_task/util/Debug.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/jamesdev/ttpod_task/Task/DownloadTask.java" afterPath="$PROJECT_DIR$/src/jamesdev/ttpod_task/Task/DownloadTask.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/jamesdev/ttpod_task/util/FileHelper.java" afterPath="$PROJECT_DIR$/src/jamesdev/ttpod_task/util/FileHelper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/jamesdev/ttpod_task/util/GlobalMode.java" afterPath="$PROJECT_DIR$/src/jamesdev/ttpod_task/util/GlobalMode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/jamesdev/ttpod_task/util/JsonParser.java" afterPath="$PROJECT_DIR$/src/jamesdev/ttpod_task/util/JsonParser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/jamesdev/ttpod_task/activity/MainActivity.java" afterPath="$PROJECT_DIR$/src/jamesdev/ttpod_task/activity/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/jamesdev/ttpod_task/adapter/SkinItemAdapter.java" afterPath="$PROJECT_DIR$/src/jamesdev/ttpod_task/adapter/SkinItemAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MOVED" beforePath="D:\Github\ttpod_task\src\jamesdev\ttpod_task\util\SkinViewHolder.java" afterPath="$PROJECT_DIR$/src/jamesdev/ttpod_task/view/SkinViewHolder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/jamesdev/ttpod_task/view/SkinViewHolder.java" afterPath="$PROJECT_DIR$/src/jamesdev/ttpod_task/view/SkinViewHolder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ttpod_task.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -74,7 +65,20 @@
     <favorites_list name="ttpod_task" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="SkinViewHolder.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/jamesdev/ttpod_task/view/SkinViewHolder.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="119" column="19" selection-start="3442" selection-end="3442" vertical-scroll-proportion="3.647355" vertical-offset="585" max-vertical-offset="2413">
+              <folding>
+                <element signature="e#3716#3717#0" expanded="true" />
+                <element signature="e#3749#3750#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -97,6 +101,7 @@
         <option value="$PROJECT_DIR$/src/jamesdev/ttpod_task/util/SkinViewHolder.java" />
         <option value="$PROJECT_DIR$/src/jamesdev/ttpod_task/activity/MainActivity.java" />
         <option value="$PROJECT_DIR$/src/jamesdev/ttpod_task/util/GlobalMode.java" />
+        <option value="$PROJECT_DIR$/src/jamesdev/ttpod_task/view/SkinViewHolder.java" />
       </list>
     </option>
   </component>
@@ -411,7 +416,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977304" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -425,7 +430,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32931727" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39089692" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39625168" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977304" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -498,13 +503,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/jamesdev/ttpod_task/view/SkinViewHolder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="45" selection-start="1363" selection-end="1363" vertical-scroll-proportion="1.6726862" vertical-offset="0" max-vertical-offset="1900">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/jamesdev/ttpod_task/util/FileHelper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="65" column="51" selection-start="1864" selection-end="1864" vertical-scroll-proportion="1.8837209" vertical-offset="449" max-vertical-offset="1520">
@@ -534,6 +532,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="1" selection-start="231" selection-end="231" vertical-scroll-proportion="0.35514018" vertical-offset="0" max-vertical-offset="428">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/jamesdev/ttpod_task/view/SkinViewHolder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="119" column="19" selection-start="3442" selection-end="3442" vertical-scroll-proportion="3.647355" vertical-offset="585" max-vertical-offset="2413">
+          <folding>
+            <element signature="e#3716#3717#0" expanded="true" />
+            <element signature="e#3749#3750#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
