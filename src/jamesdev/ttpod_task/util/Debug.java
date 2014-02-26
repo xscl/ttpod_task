@@ -5,7 +5,8 @@ import android.util.Log;
 import java.util.List;
 
 /**
- * Created by Administrator on 14-2-24.
+ * Created by Benpeng.jiang on 14-2-24.
+ * Just for debug in developing, remove relative codes before release
  */
 public final class  Debug {
     private static final String TAG = "Debug";

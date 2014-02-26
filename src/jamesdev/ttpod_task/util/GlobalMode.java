@@ -1,8 +1,9 @@
 package jamesdev.ttpod_task.util;
 
 /**
- * Created by Administrator on 14-2-25.
+ * Created by Benpeng.Jiang on 14-2-25.
+ * Variables to record global state
  */
 public class GlobalMode {
-    static public Constants.GlobalState SkinMode = Constants.GlobalState.SKIN_VIEW;
+     public static Constants.GlobalState SkinMode = Constants.GlobalState.SKIN_VIEW;
 }

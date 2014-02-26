@@ -16,23 +16,48 @@ import android.content.Context;
 import android.util.Log;
 
 /**
- * Created by Administrator on 14-2-21.
+ * Created by Jiang Benpeng on 14-2-21.
  */
 public class JsonParser {
-    private Context mContext = null;
-    private List<Map<String, String>> skinData;
-    private final static String fileName = Constants.SkinJSON.JSON_FILE;
     private static final String TAG = "JsonParser";
+    private static final String FILE_NAME = Constants.SkinJSON.JSON_FILE;
 
-    public JsonParser(Context context) {
-        mContext = context;
-        skinData = new ArrayList<Map<String, String>>();
+    private Context mContext = null;
+    private List<Map<String, String>> mSkinData;
+    private static JsonParser mInstance = null;
+
+    protected JsonParser() {
     }
 
+    /**
+     * initialize private member mContext and mSkinData
+     * @param context reference to activity
+     */
+    public JsonParser init(Context context) {
+        mContext = context;
+        mSkinData = new ArrayList<Map<String, String>>();
+        return this;
+    }
+
+    /**
+     * singleton pattern function
+     * @return unique object of this class
+     */
+    public static JsonParser getInstance() {
+        if (mInstance == null) {
+            mInstance = new JsonParser();
+        }
+        return mInstance;
+    }
+
+    /**
+     * parse json string from file
+     * @return json data
+     */
     public List<Map<String, String>>  getDataFromJSON() {
-        String jsonStr = getJson(fileName);
+        String jsonStr = getJson(FILE_NAME);
         setData(jsonStr);
-        return skinData;
+        return mSkinData;
     }
 
     private String getJson(String fileName) {
@@ -60,7 +85,7 @@ public class JsonParser {
                 map = new HashMap<String, String>();
                 map.put(Constants.SkinJSON.THUMB_NAME, object.getString(Constants.SkinJSON.THUMB_NAME));
                 map.put(Constants.SkinJSON.SKIN_URL, object.getString(Constants.SkinJSON.SKIN_URL));
-                skinData.add(map);
+                mSkinData.add(map);
             }
         } catch (JSONException e) {
             Log.e(TAG, "setData");

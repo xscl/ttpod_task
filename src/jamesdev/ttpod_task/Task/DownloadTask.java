@@ -1,5 +1,13 @@
 package jamesdev.ttpod_task.Task;
 
+import android.content.Context;
+import android.os.AsyncTask;
+import android.util.Log;
+import android.view.View;
+import android.widget.Toast;
+import jamesdev.ttpod_task.util.Constants;
+import jamesdev.ttpod_task.view.SkinViewHolder;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -7,27 +15,24 @@ import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
 
-import android.content.Context;
-import android.os.AsyncTask;
-import android.os.Environment;
-import android.util.Log;
-import android.view.View;
-import android.widget.Toast;
-import jamesdev.ttpod_task.util.Constants;
-import jamesdev.ttpod_task.util.SkinViewHolder;
-
 public class DownloadTask extends AsyncTask<Void, Integer, Integer> {
 	private static final String TAG = "DownLoadTask";
 	private SkinViewHolder mSkinViewHolder;
-	private String fileName;
-	private Integer fileSize;
+	private String mFileName;
+	private Integer mFileSize;
 	private Context mContext;
-	
+
+    /**
+     * Constructor
+     * @param context
+     * @param skinViewHolder
+     * Throws RuntimeException, IOException
+     */
 	public DownloadTask(Context context, SkinViewHolder skinViewHolder) {
 		super();
 		this.mContext = context;
 		this.mSkinViewHolder = skinViewHolder;
-		this.fileName = skinViewHolder.getThumbName();
+		this.mFileName = skinViewHolder.getThumbName();
 	}
 
 	@Override
@@ -37,9 +42,9 @@ public class DownloadTask extends AsyncTask<Void, Integer, Integer> {
 			URLConnection urlConn = url.openConnection();
 			
 			InputStream is = urlConn.getInputStream();
-			fileSize = urlConn.getContentLength();
+			mFileSize = urlConn.getContentLength();
 			
-			if (fileSize <= 0) {
+			if (mFileSize <= 0) {
 				throw new RuntimeException("cannot get file size");
 			}
 			
@@ -47,12 +52,11 @@ public class DownloadTask extends AsyncTask<Void, Integer, Integer> {
 				throw new RuntimeException("cannot get file");
 			}
 			
-			StringBuilder skinName = new StringBuilder(fileName);
+			StringBuilder skinName = new StringBuilder(mFileName);
 			skinName.append(Constants.SkinJSON.SKIN_SUFFIX);
 			String absoluteFilename = Constants.SkinJSON.SKIN_DIR + skinName.toString();
 			
 			File targetFile = new File(absoluteFilename);
-			Log.d(TAG, "path:" + targetFile.getPath());
 			if (targetFile.exists()) {
 				targetFile.delete();
 			}
@@ -65,7 +69,6 @@ public class DownloadTask extends AsyncTask<Void, Integer, Integer> {
 			}
 			
 			FileOutputStream fOS = new FileOutputStream(absoluteFilename);
-			
 			byte buf[] = new byte[1024];
 			int downLoadFilePosition = 0;
 			int numRead;
@@ -73,7 +76,7 @@ public class DownloadTask extends AsyncTask<Void, Integer, Integer> {
 			while ((numRead = is.read(buf)) != -1) {
 				fOS.write(buf, 0, numRead);
 				downLoadFilePosition += numRead;
-				publishProgress((int)((downLoadFilePosition/(float)fileSize)*100));
+				publishProgress((int)((downLoadFilePosition/(float)mFileSize)*100));
 			}
 			
 			try {
@@ -87,7 +90,7 @@ public class DownloadTask extends AsyncTask<Void, Integer, Integer> {
 			e.printStackTrace();
 		}
 		
-		return fileSize;
+		return mFileSize;
 	}
 	
 	@Override

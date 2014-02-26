@@ -12,7 +12,7 @@ import jamesdev.ttpod_task.activity.R;
 import jamesdev.ttpod_task.util.AssetsHelper;
 import jamesdev.ttpod_task.util.Constants;
 import jamesdev.ttpod_task.util.GlobalMode;
-import jamesdev.ttpod_task.util.SkinViewHolder;
+import jamesdev.ttpod_task.view.SkinViewHolder;
 
 import java.util.List;
 import java.util.Map;
@@ -21,21 +21,28 @@ import java.util.Map;
  * Created by Bengpeng.Jiang.
  */
 public class SkinItemAdapter extends BaseAdapter {
+    private static final String TAG = "SkinItemAdapter";
+
     private Context mContext;
     private  List<Map<String, String>> mSkinData;
     private int mEmbededNo;
     private String[] mEmbededFiles;
 
-    private static final String TAG = "SkinItemAdapter";
-
+    /**
+     * constructor
+     * @param context
+     * @param pSkinData
+     */
     public SkinItemAdapter(Context context,  List<Map<String, String>> pSkinData) {
         mContext = context;
         mSkinData = pSkinData;
-        mEmbededFiles = AssetsHelper.getInstance(mContext).getAssetFiles(Constants.SkinJSON.EMBEDED_SKIN_DIR);
+        //get all the files name of embeded skins
+        mEmbededFiles = AssetsHelper.getInstance().init(mContext).getAssetFiles(Constants.SkinJSON.EMBEDED_SKIN_DIR);
         mEmbededNo = mEmbededFiles.length;
     }
     @Override
     public int getCount() {
+        // 1 is for download icon
         return mEmbededNo + mSkinData.size() + 1;
     }
 
@@ -52,7 +59,7 @@ public class SkinItemAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         Log.d(TAG, "getView in position:" + position);
-        final SkinViewHolder holder;
+        SkinViewHolder holder;
         View view = convertView;
 
         if (convertView == null) {
@@ -80,7 +87,6 @@ public class SkinItemAdapter extends BaseAdapter {
         holder.deleteImageView = (ImageView)view.findViewById(R.id.deleteImageView);
 
         String thumbName;
-
         if (position == this.getCount() - 1) {
             holder.isLast = true;
             thumbName = Constants.SkinJSON.DOWNLOAD_NAME;
@@ -109,6 +115,9 @@ public class SkinItemAdapter extends BaseAdapter {
         holder.loadThumb(thumbName);
     }
 
+    /**
+     * refresh data in adapter
+     */
     public void refresh() {
         this.notifyDataSetChanged();
     }

@@ -12,26 +12,21 @@ import jamesdev.ttpod_task.adapter.SkinItemAdapter;
 import jamesdev.ttpod_task.util.Constants;
 import jamesdev.ttpod_task.util.GlobalMode;
 import jamesdev.ttpod_task.util.JsonParser;
-import jamesdev.ttpod_task.util.SkinViewHolder;
+import jamesdev.ttpod_task.view.SkinViewHolder;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Created by Benpeng.Jiang
+ */
 public class MainActivity extends Activity {
     private static final String TAG = "MainActivity";
 
-    private GridView gridView;
-    private Button skinEditButton;
-
-    private List<Map<String, String>> skinData;
-    private ArrayList<SkinViewHolder> skinViewHolders;
-    private ArrayList<View> itemViews;
-
-    private static String[] downloadedFiles = null;
-    private static String[] embadedFiles = null;
-
+    private GridView mGridView;
+    private Button mSkinEditButton;
+    private List<Map<String, String>> mSkinData;
     private SkinItemAdapter mSkinItemAdapter;
 
     /**
@@ -42,34 +37,28 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        skinViewHolders = new ArrayList<SkinViewHolder>();
-        itemViews = new ArrayList<View>();
+        mSkinData = JsonParser.getInstance().init(this).getDataFromJSON();
+        mSkinItemAdapter = new SkinItemAdapter(this, mSkinData);
 
-        getSkinDataFromJSON();
-        mSkinItemAdapter = new SkinItemAdapter(this, skinData);
-
-        skinEditButton = (Button)findViewById(R.id.button_skin_edit);
-        skinEditButton.setOnClickListener(new View.OnClickListener() {
+        mSkinEditButton = (Button)findViewById(R.id.button_skin_edit);
+        mSkinEditButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Button self = (Button)view;
                 if (GlobalMode.SkinMode == Constants.GlobalState.SKIN_VIEW) {
                     GlobalMode.SkinMode = Constants.GlobalState.SKIN_EDIT;
                     self.setText(getString(R.string.button_save_skin));
-                    mSkinItemAdapter.refresh();
-                    Log.d(TAG, "edit skin: update adapter data");
                 } else if (GlobalMode.SkinMode == Constants.GlobalState.SKIN_EDIT) {
                     GlobalMode.SkinMode = Constants.GlobalState.SKIN_VIEW;
                     self.setText(getString(R.string.button_edit_skin));
-                    mSkinItemAdapter.refresh();
-                    Log.d(TAG, "save skin, update apdater data ");
                 }
+                mSkinItemAdapter.refresh();
             }
         });
 
-        gridView = (GridView)findViewById(R.id.gridViewSkin);
-        gridView.setAdapter(mSkinItemAdapter);
-        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        mGridView = (GridView)findViewById(R.id.gridViewSkin);
+        mGridView.setAdapter(mSkinItemAdapter);
+        mGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view,
                                             int position, long id) {
                 SkinViewHolder skinViewHolder = (SkinViewHolder)view.getTag();
@@ -80,10 +69,9 @@ public class MainActivity extends Activity {
                 }
             }
         });
-        Log.i(TAG, "onCreate");
         
         String state = Environment.getExternalStorageState();
-        
+
         if (Environment.MEDIA_MOUNTED.equals(state)) {
         	Log.d(TAG, "visible");
         } else if (Environment.MEDIA_MOUNTED_READ_ONLY.equals(state)) {
@@ -101,11 +89,6 @@ public class MainActivity extends Activity {
         }
     }
 
-    private void getSkinDataFromJSON() {
-        JsonParser jsonParser = new JsonParser(this);
-        skinData = jsonParser.getDataFromJSON();
-    }
-
     @Override
     public void onStart() {
     	super.onStart();
@@ -116,7 +99,6 @@ public class MainActivity extends Activity {
     @Override
     public void onResume() {
         super.onResume();
-
         Log.d(TAG, "onResume");
     }
 }

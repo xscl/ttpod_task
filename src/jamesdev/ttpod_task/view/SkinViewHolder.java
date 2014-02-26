@@ -1,4 +1,4 @@
-package jamesdev.ttpod_task.util;
+package jamesdev.ttpod_task.view;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
@@ -8,6 +8,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import jamesdev.ttpod_task.Task.DownloadTask;
+import jamesdev.ttpod_task.util.Constants;
+import jamesdev.ttpod_task.util.FileHelper;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -47,7 +49,7 @@ public class SkinViewHolder {
 
     public void doEdit() {
         Log.d(TAG, "edit skin");
-        if (!this.isEmbeded && FileHelper.delleteSkin(this.mThumbName)) {
+        if (!this.isEmbeded && FileHelper.deleteSkin(this.mThumbName)) {
             Log.d(TAG, "delete file success");
             mBaseAdapter.notifyDataSetChanged();
         } else {

@@ -6,26 +6,45 @@ import android.util.Log;
 import java.io.IOException;
 
 /**
- * Created by Administrator on 14-2-24.
+ * Created by Benpeng.Jiang on 14-2-24.
  */
 public class AssetsHelper {
     private Context mContext;
     private static AssetsHelper mInstance = null;
+
     private static final String TAG = "AssetsHelper";
 
-    protected AssetsHelper(Context context) {
-        mContext = context;
+    protected AssetsHelper() {
     }
 
-    public static AssetsHelper getInstance(Context context) {
+    /**
+     * Get unique object
+     * @param context
+     * @return
+     */
+    public static AssetsHelper getInstance() {
         if (mInstance == null) {
-            mInstance = new AssetsHelper(context);
+            mInstance = new AssetsHelper();
         }
-
         return mInstance;
     }
 
+    /**
+     * Initialize members
+     * @param context
+     * @return
+     */
+    public AssetsHelper init(Context context) {
+        mContext = context;
+        return mInstance;
+    }
 
+    /**
+     * Get files in assets
+     * @param path path to get files
+     * @return all the files name in path
+     * throws IOException
+     */
     public String[] getAssetFiles(String path) {
         String[] list;
         try {
@@ -34,7 +53,6 @@ public class AssetsHelper {
             Log.e(TAG, "get assets error");
             return null;
         }
-
         return list;
     }
 }

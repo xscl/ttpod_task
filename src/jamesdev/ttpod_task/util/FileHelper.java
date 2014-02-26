@@ -5,9 +5,11 @@ import java.io.File;
 import android.os.Environment;
 import android.util.Log;
 
+/**
+ * Crated by Benpeng.Jiang
+ */
 public class FileHelper {
-	private static String[] downloadedFiles = null;
-	private static FileHelper mInstance = null;
+	private static String[] mDownloadedFiles = null;
 	private static final String TAG = "FileHelper";
 	
 	/* Checks if external storage is available for read and write */
@@ -28,37 +30,42 @@ public class FileHelper {
 	    }
 	    return false;
 	}
-	
-	private void getSkinFiles() {
-		File skinDir = new File(Constants.SkinJSON.SKIN_DIR);
-		File skinFiles[] = skinDir.listFiles();
-		if (skinFiles == null) {
-			return;
-		}
 
-		int fileSize = skinFiles.length;
-		downloadedFiles = new String[fileSize];
-
-		for (int i = 0; i < fileSize; i++) {
-			Log.d(TAG, "fileName:" + skinFiles[i].getName());
-			downloadedFiles[i] = skinFiles[i].getName();
-		}
-	}
-
+    /**
+     * check if skin exist
+     * @param skinName skin name
+     * @return true is exist, false if not
+     */
 	public static boolean isSkinExist(String skinName) {
 		return isFileExisted(skinName + Constants.SkinJSON.SKIN_SUFFIX, Constants.SkinJSON.SKIN_DIR);
 	}
 
+    /**
+     * check whether file exist
+     * @param fileName file name
+     * @param dir directory of the file name
+     * @return true if exist, false if not
+     */
     public static boolean isFileExisted(String fileName, String dir) {
         File file = new File(dir + fileName);
         return file.exists();
     }
 
+    /**
+     * get the path of skin
+     * @param skinName skin name
+     * @return path of skin
+     */
     private static String getSkinPath(String skinName) {
         return Constants.SkinJSON.SKIN_DIR + skinName + Constants.SkinJSON.SKIN_SUFFIX;
     }
 
-    public static boolean delleteSkin(String skinName) {
+    /**
+     * delete skin
+     * @param skinName skin name
+     * @return ture if delete success, false if not
+     */
+    public static boolean deleteSkin(String skinName) {
         String filePath = getSkinPath(skinName);
         File skin = new File(filePath);
         boolean isDeleted = false;

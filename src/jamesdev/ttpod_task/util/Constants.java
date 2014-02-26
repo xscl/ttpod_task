@@ -4,10 +4,13 @@ import android.os.Environment;
 
 
 /**
- * Created by Administrator on 14-2-21.
+ * Created by Benpeng.jaign  on 14-2-21.
  */
 public final class Constants {
 
+    /**
+     * Constant variables for get skin using json file
+     */
 	public static class SkinJSON {
         public static final String SKIN_DIR = Environment.getExternalStorageDirectory().toString() + "/ttpod_task/skin/";
         public static final String PREVIEW_DIR = "preview_img/";
@@ -24,6 +27,9 @@ public final class Constants {
         public static final String DOWNLOAD_NAME = "download";
    }
 
+    /**
+     * Constant variable to indicate the state of application
+     */
     public enum GlobalState {
         SKIN_VIEW, SKIN_EDIT
     }
