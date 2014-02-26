@@ -2,9 +2,6 @@ package jamesdev.ttpod_task.adapter;
 
 import android.app.Activity;
 import android.content.Context;
-import android.database.DataSetObserver;
-import android.graphics.drawable.Drawable;
-import android.media.Image;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,32 +9,34 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import jamesdev.ttpod_task.activity.R;
-import jamesdev.ttpod_task.util.*;
+import jamesdev.ttpod_task.util.AssetsHelper;
+import jamesdev.ttpod_task.util.Constants;
+import jamesdev.ttpod_task.util.GlobalMode;
+import jamesdev.ttpod_task.util.SkinViewHolder;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.List;
 import java.util.Map;
 
 /**
- * Created by Administrator on 14-2-24.
+ * Created by Bengpeng.Jiang.
  */
 public class SkinItemAdapter extends BaseAdapter {
     private Context mContext;
-    private  List<Map<String, String>> skinData;
+    private  List<Map<String, String>> mSkinData;
+    private int mEmbededNo;
+    private String[] mEmbededFiles;
+
     private static final String TAG = "SkinItemAdapter";
-    private int embededNo;
-    private String[] embededFiles;
 
     public SkinItemAdapter(Context context,  List<Map<String, String>> pSkinData) {
         mContext = context;
-        skinData = pSkinData;
-        embededFiles = AssetsHelper.getInstance(mContext).getAssetFiles(Constants.SkinJSON.EMBEDED_SKIN_DIR);
-        embededNo = embededFiles.length;
+        mSkinData = pSkinData;
+        mEmbededFiles = AssetsHelper.getInstance(mContext).getAssetFiles(Constants.SkinJSON.EMBEDED_SKIN_DIR);
+        mEmbededNo = mEmbededFiles.length;
     }
     @Override
     public int getCount() {
-        return embededNo + skinData.size() + 1;
+        return mEmbededNo + mSkinData.size() + 1;
     }
 
     @Override
@@ -89,13 +88,13 @@ public class SkinItemAdapter extends BaseAdapter {
             holder.deleteImageView.setVisibility(View.GONE);
         } else {
             holder.isLast = false;
-            if (position < embededNo) {
+            if (position < mEmbededNo) {
                 holder.isEmbeded = true;
-                thumbName = embededFiles[position].split("\\.")[0];
+                thumbName = mEmbededFiles[position].split("\\.")[0];
                 holder.deleteImageView.setVisibility(View.GONE);
             } else {
                 holder.isEmbeded = false;
-                Map<String, String> skinInfo = skinData.get(position - embededNo);
+                Map<String, String> skinInfo = mSkinData.get(position - mEmbededNo);
                 holder.skinUrl = skinInfo.get(Constants.SkinJSON.SKIN_URL);
                 thumbName = skinInfo.get(Constants.SkinJSON.THUMB_NAME);
 
